@@ -1,0 +1,18 @@
+
+#name of entire workflow
+name: shell commands
+
+#the event we are looking out for
+on: [push]
+
+jobs:
+  run-shell-command:
+    #run-on defines the virtual operating system to run this job on (windows, linus, mac OS)
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo a string
+        run: echo "Hello world"
+      - name: mutiline script
+        run: |
+          node -v
+          npm -v
