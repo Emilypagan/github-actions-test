@@ -1,3 +1,3 @@
 # github-actions-test
 
-testing github connection
+testing github connection from local to remote
