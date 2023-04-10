@@ -13,6 +13,7 @@ jobs:
     steps:
     #running a shell command  bash is default for linux and mac OS; powershell default is powershell
       - name: echo a string
+        #example of a step running a command
         run: echo "Hello world"
       - name: mutiline script
         run: |

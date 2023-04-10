@@ -1,0 +1,20 @@
+
+name: Actions Workflow
+
+on: [push]
+
+jobs:
+  run-github-actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simple Javascript Action
+        #giving this step an ID so other steps can reference the output
+        id: greet
+        # uses will take a reference to an action
+        # @[version number, branch name, commit ID]
+        uses: actions/hello-world-javascript-action@v1
+        with:
+          who-to-greet: Emily
+      - name: Log Greeting Time
+        # find the outputs in the documentation of the action you are using
+        run: echo "${{ steps.greet.outputs.time }}"
