@@ -10,9 +10,15 @@ jobs:
     #run-on defines the virtual operating system to run this job on (windows, linus, mac OS)
     runs-on: ubuntu-latest
     steps:
+    #running a shell command  bash is default for linux and mac OS; powershell default is powershell
       - name: echo a string
         run: echo "Hello world"
       - name: mutiline script
         run: |
           node -v
           npm -v
+      - name: python command
+        run: |
+          import platform
+          print(platform.processor())
+        shell: python
