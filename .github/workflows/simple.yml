@@ -1,3 +1,4 @@
+# how to a different shell
 
 #name of entire workflow
 name: shell commands
@@ -25,6 +26,8 @@ jobs:
   
   run-windows-commands:
     runs-on: windows-latest
+    # runs when previous steps are successful
+    needs: ["run-shell-command"]
     steps:
       - name: Directory PowerShell
         #in bash Get-Location = pwd (print working directory)
