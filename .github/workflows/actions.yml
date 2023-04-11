@@ -1,8 +1,14 @@
 
 name: Actions Workflow
 
-#triggers workflow to run
-on: [push, pull_request]
+# 'on:' triggers workflow to run the following jobs/steps/actions
+# pull_request default will only run when you open, reopen, or synchronize a pr. unless you specify what action types
+# on: [push, pull_request]
+# here is another way by making the 'on:' an object
+on: 
+  push:
+  pull_request:
+    types: [closed, assigned, opened, reopened]
 
 jobs:
   run-github-actions:
