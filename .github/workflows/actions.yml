@@ -1,7 +1,8 @@
 
 name: Actions Workflow
 
-on: [push]
+#triggers workflow to run
+on: [push, pull_request]
 
 jobs:
   run-github-actions:
