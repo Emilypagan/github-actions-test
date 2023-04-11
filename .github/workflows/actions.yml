@@ -1,7 +1,7 @@
 
 name: Actions Workflow
 
-#triggers workflow to run
+#triggers workflow to run the following jobs/steps/actions
 on: [push, pull_request]
 
 jobs:
