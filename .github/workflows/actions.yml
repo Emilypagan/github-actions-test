@@ -10,13 +10,13 @@ jobs:
       - name: List Files - step 1
         run: |
           pwd
-          ls
+          ls -la
       - name: Checkout - step 2
         uses: actions/checkout@v3 #authenticate with your repositry and fetch the code and checkout in the commit that triggered the workflow to run
       - name: List Files - step 3
         run: |
           pwd
-          ls
+          ls -la
       - name: Simple Javascript Action - step 4
         #giving this step an ID so other steps can reference the output
         id: greet
