@@ -7,11 +7,17 @@ jobs:
   run-github-actions:
     runs-on: ubuntu-latest
     steps:
-      - name: List Files
+      - name: List Files - step 1
         run: |
           pwd
           ls
-      - name: Simple Javascript Action
+      - name: Checkout - step 2
+        uses: actions/checkout@v3 #authenticate with your repositry and fetch the code and checkout in the commit that triggered the workflow to run
+      - name: List Files - step 3
+        run: |
+          pwd
+          ls
+      - name: Simple Javascript Action - step 4
         #giving this step an ID so other steps can reference the output
         id: greet
         # uses will take a reference to an action
@@ -19,6 +25,6 @@ jobs:
         uses: actions/hello-world-javascript-action@v1
         with:
           who-to-greet: Emily
-      - name: Log Greeting Time
+      - name: Log Greeting Time - step 5
         # find the outputs in the documentation of the action you are using
-        run: echo "${{ steps.greet.outputs.time }}" #where does this command run in our VM? - 
+        run: echo "${{ steps.greet.outputs.time }}" #where does this command run in our VM? -> /home/runner/work/github-actions-test/github-actions-test
