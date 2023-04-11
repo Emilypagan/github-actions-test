@@ -8,12 +8,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: List Files - step 1
+      #echo environment variables so you can use in workflows (they are set automatically no need to assign) - this is the manual way of doing the github checkout action
+      #GITHUB_SHA - commit ID of the commit that triggered workflow to run
+      #GITHUB_REPOSITORY - username and repo name
+      #GITHUB_WORKSPACE - workspace directory - pwd
+      #object called 'github' - github.token - use token to authenticate with your github repostory
         run: |
           pwd
           ls -la
+          echo $GITHUB_SHA
+          echo $GITHUB_REPOSITORY
+          echo $GITHUB_WORKSPACE
+          echo "${{ github.token }}"
+          git clone git@github:$GITHUB_REPOSITORY
+          git checkout $GITHUB_SHA
       - name: Checkout - step 2
         uses: actions/checkout@v3 #authenticate with your repositry and fetch the code and checkout in the commit that triggered the workflow to run
-      - name: List Files - step 3
+      - name: List Files after check out - step 3
         run: |
           pwd
           ls -la
